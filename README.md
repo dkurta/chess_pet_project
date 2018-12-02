@@ -1,1 +1,1 @@
-# chess_pet_project
+# Pet Project
