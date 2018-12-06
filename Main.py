@@ -1,14 +1,13 @@
-import chess
-
 from Evaluation import evaluate
 from Game import Game
-from Negamax import negamax
+from Negamax import pick_best_move
 
 
 def play(game):
-    while not g.b.is_game_over():
+    while not game.b.is_game_over():
         # Print Board at first
-        print(g.b)
+        print('\n')
+        print(game.b)
         print('Evaluation Score: {}'.format(evaluate(g.b)))
         ## True == chess.WHITE, False == chess.BLACK
         if game.b.turn == game.player_color:
@@ -16,8 +15,9 @@ def play(game):
             game.b.push_san(move)
         else:
             print("AI moves.")
-            ## call negamax here
-            negamax(game.b)
+            ai_move_san = pick_best_move(game.b, not game.player_color, depth=3)
+            print("AI's move is {}".format(ai_move_san))
+            game.b.push_san(ai_move_san)
 
         # move = input('Please enter your move: \n{}'.format(game.b.legal_moves))
         # game.b.push_san(move)
