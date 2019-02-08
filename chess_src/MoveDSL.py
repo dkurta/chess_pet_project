@@ -40,7 +40,7 @@ def translate(dsl_string):
 
 def closure_for_counter():
     """
-    a closure function for the generation of a counter
+    a closure function for the generation of a counter that starts with 0
     :return: a counter() function with a counter variable that can not be accessed or manipulated from outside.
     """
     x = -1

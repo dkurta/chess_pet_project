@@ -9,6 +9,9 @@ PIECE_VALUES = {chess.PAWN: 1,
                 # number of kings is always equal
                 chess.KING: 0}
 
+RATING_FOR_GAME_WON_BY_WHITE = 1000
+RATING_FOR_DRAWN_GAME = 0
+
 def evaluate(board, color="WHITE"):
     '''
     Computes the evaluation score for a chess position
@@ -25,14 +28,13 @@ def evaluate(board, color="WHITE"):
         res = board.result()
         # white won the game
         if res == '1-0':
-            return 1000
+            return RATING_FOR_GAME_WON_BY_WHITE
         # black won
         elif res == '0-1':
-            return -1000
+            return -RATING_FOR_GAME_WON_BY_WHITE
         # game drawn
         else:
-            return 0
-
+            return RATING_FOR_DRAWN_GAME
 
     score = 0
     # add up scores according to piece_values
