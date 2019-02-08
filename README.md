@@ -7,6 +7,12 @@ the negamax-algorithm. It uses the python-chess library.
 ## UML
 
 ## Metrics
+For generating metrics for the Chess Pet Project, i used [sonarcloud.io](sonarcloud.io)
+ sonarcloud is easy to use in that way. You can simply subscribe with your
+ github-account and import the project you want to investigate. Than you only have to
+ to add the sonar-scanner to the local %PATH% and run it in the local
+ directory. After these steps, you can see the metrics on the sonarcloud.io page.
+
 
 ## Clean Code Development
 #### 1. Avoid magic numbers
@@ -19,6 +25,15 @@ The code style has been checked for the PEP 8 -- Style Guide for Python
  Code while programming. It covers e.g. naming and layout conventions.
 
 ## Build Management
+This project gets builded with Ant via the `build.xml` file in the `.`
+directory of the project.
+
+`build.xml` defines the process of deployment of the files in the project's
+folder and how they get copied into an other directory. The steps in this process
+ (called "targets") have dependencies to other targets. That is the way to keep
+  a structure in the buildprocess and calling them one after an other. Values and
+  paths that are used in the buildfile are declared as values and locations with a
+  property tag.
 
 ## Continous Delivery
 
