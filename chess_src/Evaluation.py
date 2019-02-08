@@ -1,13 +1,13 @@
 import chess
 
 # piece values according to Capablanca
-PIECE_VALUES = {chess.PAWN: 1,
-                chess.BISHOP: 3,
-                chess.KNIGHT: 3,
-                chess.ROOK: 5,
-                chess.QUEEN: 9,
+PIECE_VALUES = {chess.PAWN:     1,
+                chess.BISHOP:   3,
+                chess.KNIGHT:   3,
+                chess.ROOK:     5,
+                chess.QUEEN:    9,
                 # number of kings is always equal
-                chess.KING: 0}
+                chess.KING:     0}
 
 RATING_FOR_GAME_WON_BY_WHITE = 1000
 RATING_FOR_DRAWN_GAME = 0
