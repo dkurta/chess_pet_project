@@ -14,3 +14,4 @@ class Game:
         else:
             self.player_color = chess.BLACK
             print("you're black.")
+        self.bot_color = not player_color

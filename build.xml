@@ -1,0 +1,30 @@
+<project name="ChessPetProject" default="copy_all" basedir=".">
+  <description>
+    this is the build file for building the chess pet project by daniel kurta with ant.
+  </description>
+  <!-- set some global properties... -->
+  <property name="target_folder" location="C:\Users\Admin\Desktop\DataScience\1. Semester\advanced_softwareengineering\chess_pet_project_target"/>
+  <property name="message" value="Buildprozess gestartet"/>
+
+<target name="greet" description="say hello">
+    <echo message="${message}"/>
+</target>
+
+<target name="clean" description="removing previous builds in the target dir" depends="greet">
+    <!-- remove previous builds -->
+    <delete dir="${target_folder}"/>
+</target>
+  
+
+<target name="make_dir" description="creating target dir if not exists" depends="clean">
+    <!-- create the target directory for the build -->
+    <mkdir dir="${target_folder}"/>
+</target>
+
+<target name="copy_all" description="copy data to target dir" depends="make_dir">
+    <!-- copy everything  to the build directory -->
+    <copy todir="${target_folder}">
+        <fileset dir="${basedir}"/>
+    </copy>
+</target>
+</project>
