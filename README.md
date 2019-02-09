@@ -72,7 +72,11 @@ For a little project in logical programming in Prolog, i adressed
 the problem of the membership of a word to a language given by a
 [deterministic finite automaton (DFA)](https://en.wikipedia.org/wiki/Deterministic_finite_automaton)
 shown in the picture. It represents the language over the alphabet {a, b}
- containing words, that have exactly 3 a's. The transition function of the
+ containing words, that have exactly 3 a's:
+
+  `L = {w | w contains exactly 3 a's}`
+
+  The transition function of the
 DFA is represented in the knowledge base by the fact edge/3 where the
 first argument is the initial state, the second is the next state and the
 third is the symbol.
