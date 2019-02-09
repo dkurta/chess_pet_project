@@ -55,7 +55,7 @@ DFA is represented in the knowledge base by the fact edge/3 where the
 first argument is the initial state, the second is the next state and the
 third is the symbol.
 The rule isElementOfL/1 takes a word as input parameter and decides
- if a word, represented as a list is part of the language represented
+ if a word (represented as a list) is part of the language represented
  by the DFA with the help of the rule stateChange/3, which calls
  itself in a recursive way for wordes with a length > 2.
 
