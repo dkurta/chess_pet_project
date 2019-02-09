@@ -1,14 +1,18 @@
-translations_pieces = {'Springer':  'N',
+TRANSLATION_PIECES = {'Springer':  'N',
                        'Turm':      'R',
                        'Bauer':     '',
                        'Läufer':    'B',
                        'Dame':      'Q',
                        'König':     'K'}
 
-translations_action = {'schlägt':   'x',
+TRANSLATIONS_ACTION = {'schlägt':   'x',
                        'nach':       ''}
 
-lines = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+FILES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+
+# shift letters from FILES by 48 to recieve ROWS
+# ROWS = ['1', '2', '3', '4', '5', '6', '7', '8']
+ROWS = list(map(lambda s: str(chr(ord(s)-48)), FILES))
 
 
 def translate(dsl_string):
@@ -17,23 +21,23 @@ def translate(dsl_string):
     :param dsl_string: the german dsl input String 
     :return: move as standart Chess Notation
     """
-    token = dsl_string.split(" ")
+    token = dsl_string.strip().split(" ")
     counter = closure_for_counter()
     translated_token = list()
     # e.g. "Springer"
-    translated_token.append(translations_pieces[token[counter()]])
+    translated_token.append(TRANSLATION_PIECES[token[counter()]])
 
-    if token[counter(inc=False)+1] in lines:
-        # e.g. "a"
+    if token[counter(inc=False)+1] in FILES or token[counter(inc=False)+1] in ROWS:
+        # e.g. "a"/"1"
         translated_token.append(token[counter()])
 
     # e.g. "nach"
-    translated_token.append(translations_action[token[counter()]])
+    translated_token.append(TRANSLATIONS_ACTION[token[counter()]])
     # e.g. "f3"
     translated_token.append(token[counter()])
     if counter() == len(token) - 1:
         # e.g. "Dame"
-        translated_token.append('={}'.format(translations_pieces[token[counter(inc=False)]]))
+        translated_token.append('={}'.format(TRANSLATION_PIECES[token[counter(inc=False)]]))
     return ''.join(translated_token)
 
 

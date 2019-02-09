@@ -46,7 +46,7 @@ folder and how they get copied into an other directory. The steps in this proces
 
 ![DFA](./img/dfa.png)
 
-For a little Project in logical programming in Prolog, i adressed
+For a little project in logical programming in Prolog, i adressed
 the problem of the membership of a word to a language given by a
 [deterministic finite automaton (DFA)](https://en.wikipedia.org/wiki/Deterministic_finite_automaton)
 shown in the picture. It represents the language over the alphabet {a, b}

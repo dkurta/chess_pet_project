@@ -10,8 +10,9 @@ class Game:
         player_color = input("Pick w/b")
         if player_color == "w":
             self.player_color = chess.WHITE
+            self.bot_color = chess.BLACK
             print("you're white.")
         else:
             self.player_color = chess.BLACK
+            self.bot_color = chess.WHITE
             print("you're black.")
-        self.bot_color = not player_color
