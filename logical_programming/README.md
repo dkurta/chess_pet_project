@@ -1,6 +1,6 @@
 # Logical Programming
 
-![DFA](./img/dfa.png)
+![DFA](../img/dfa.png)
 
 For a little project in logical programming in Prolog, i adressed
 the problem of the membership of a word to a language given by a
