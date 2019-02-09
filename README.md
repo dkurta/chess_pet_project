@@ -59,9 +59,7 @@ The rule isElementOfL/1 takes a word as input parameter and decides
  by the DFA with the help of the rule stateChange/3, which calls
  itself in a recursive way for wordes with a length > 2.
 
- Example Queries are
-
- isElementOfL([a, b, a, b, a]). which returns "True." or
-
-isElementOfL([a, b, b, a, b]). which returns "False." because it
-only has 2 a's.
+ Example Queries are:
+* isElementOfL([a, b, a, b, a]). which returns "True."
+* isElementOfL([a, b, b, a, b]). which returns "False." because it
+only has 2 a's
