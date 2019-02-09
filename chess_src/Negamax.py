@@ -1,14 +1,16 @@
 from chess_src.Evaluation import evaluate
 
+CALCULATION_DEPTH = 3
 
-def choose_move(board, color, depth):
-    '''
-    Assign scores to possible moves with negamax.
-    :param board:
-    :param color:
-    :param depth:
-    :return: The move with the best score.
-    '''
+
+def choose_move(board, color, depth=CALCULATION_DEPTH):
+    """
+    compute the move with the best scores from Negamax.
+    :param board: actual board state
+    :param color: color of the player to move
+    :param depth: calculation depth
+    :return: the best move
+    """
     moves_with_score = {}
     for move in board.legal_moves:
         # make copy of the board an call negamax and store values in dict
@@ -26,14 +28,20 @@ def choose_move(board, color, depth):
 
 
 def negamax(board, color, depth):
+    """
+    implementation of the Negamax algorithm
+    :param board: the board (position)
+    :param color: color of the player to move.
+    :param depth: depth for the searching tree
+    :return: the score for the player regarding the evaluation scores from the search tree
+    """
     if depth == 0:
-        if color == True:
+        if color:
             return evaluate(board, "WHITE")
         else:
             return evaluate(board, "BLACK")
     value = float("-infinity")
-    legal_moves = board.legal_moves
-    for move in legal_moves:
+    for move in board.legal_moves:
         board_child = board.copy()
         board_child.push(move)
         value = max(value, -negamax(board_child, not color, depth-1))

@@ -2,8 +2,6 @@ from chess_src.Evaluation import evaluate
 from chess_src.Negamax import choose_move
 from chess_src.MoveDSL import translate
 
-CALCULATING_DEPTH = 3
-
 
 def print_board_and_score(game):
     """
@@ -40,7 +38,7 @@ def validate_move(move, game):
 
 def execute_move(move, game):
     """
-    execute move
+    Execute move
     :param move: move in san format 
     :param game: game state
     :return: 
@@ -69,6 +67,6 @@ def play(game):
         else:
             # bot has to move
             print("AI moves.")
-            ai_move_san = choose_move(game.b, game.bot_color, depth=CALCULATING_DEPTH)
+            ai_move_san = choose_move(game.b, game.bot_color)
             print("AI's move is {}".format(ai_move_san))
             game.b.push_san(ai_move_san)
