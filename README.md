@@ -38,6 +38,27 @@ folder and how they get copied into an other directory. The steps in this proces
 ## Continous Delivery
 
 ## DSL
+In the Chess Pet Project, two Domain Specific Languages are used. The
+first one is the [Standart Chess Notation (san)](https://en.wikipedia.org/wiki/Algebraic_notation_(chess)) for chess moves which is
+used to enter the moves the player wants to execute.
+
+As an extension of san, i invented the German Chess Domain Specific Language
+that describes moves in a high level way. It is inspired by the german language and can
+be used instead of san for communicating moves. The GcDSL's implementation
+is located in `./chess_src/MoveDSL.py`.
+
+Its Syntax is pretty easy:
+
+"{figureType (required)} {action (required)} {file or rank (not required)} \
+    {field (required)} {figureTypeConversion (note required)}"
+
+Examples for the German Chess DSL:
+
+* "Bauer nach d6" -> "d6"
+* "Bauer c schlägt d6" -> "cxd6"
+* "Turm f nach e1" -> "Rfe1"
+* "Springer schlägt f3" -> "Nxf3"
+* "Bauer b schläg a8 Dame" -> "bxa8=Q"
 
 ## Functional Programming
 
