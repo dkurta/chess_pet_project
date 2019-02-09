@@ -17,7 +17,6 @@ def translate(dsl_string):
     :param dsl_string: the german dsl input String 
     :return: move as standart Chess Notation
     """
-    print('b' in lines)
     token = dsl_string.split(" ")
     counter = closure_for_counter()
     translated_token = list()

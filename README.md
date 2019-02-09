@@ -1,8 +1,8 @@
 # Chess Pet Project
 by Daniel Kurta
 
-This project implements a small chessbot based on
-the negamax-algorithm. It uses the python-chess library.
+This project implements a simple chessbot based on
+the negamax-algorithm. It uses [the python-chess library](https://python-chess.readthedocs.io/en/latest/index.html).
 
 ## UML
 
@@ -43,6 +43,8 @@ folder and how they get copied into an other directory. The steps in this proces
 
 ## Logical Programming
 (./logical_programming/graph_search.pl)
+
+![DFA](./img/dfa.png)
 
 For a little Project in logical programming in Prolog, i adressed
 the problem of the membership of a word to a Language given by a
