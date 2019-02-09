@@ -63,7 +63,8 @@ Examples for the German Chess DSL:
 ## Functional Programming
 
 ## Logical Programming
-(./logical_programming/graph_search.pl)
+The logical programming part is located in
+`./logical_programming/graph_search.pl)`.
 
 ![DFA](./img/dfa.png)
 
