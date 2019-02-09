@@ -1,13 +1,15 @@
 % Knowledge base for a deterministic finite automaton.
 % It represents the state transfer function.
-edge(s, z2, a).
-edge(s, z3, b).
-edge(z2, z3, a).
-edge(z2, z4, b).
-edge(z3, s, a).
-edge(z3, z4, b).
-edge(z4, s, b).
-edge(z4, zakz, a).
+edge(s, z1, a).
+edge(s, s, b).
+edge(z1, z2, a).
+edge(z1, z1, b).
+edge(z2, zakz, a).
+edge(z2, z2, b).
+edge(zakz, z3, a).
+edge(zakz, zakz, b).
+edge(z3, z3, a).
+edge(z3, z3, b).
 
 % entry point for a query. Determines if a word is element of the
 % language L given by the automaton.

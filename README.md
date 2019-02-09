@@ -47,9 +47,13 @@ folder and how they get copied into an other directory. The steps in this proces
 ![DFA](./img/dfa.png)
 
 For a little Project in logical programming in Prolog, i adressed
-the problem of the membership of a word to a Language given by a
-[deterministic finite automaton (DFA)](https://en.wikipedia.org/wiki/Deterministic_finite_automaton). The transfer function of the
-DFA is represented in the knowledge base by the fact edge/3.
+the problem of the membership of a word to a language given by a
+[deterministic finite automaton (DFA)](https://en.wikipedia.org/wiki/Deterministic_finite_automaton)
+shown in the picture. It represents the language over the alphabet {a, b}
+ containing words, that have exactly 3 a's. The transition function of the
+DFA is represented in the knowledge base by the fact edge/3 where the
+first argument is the initial state, the second is the next state and the
+third is the symbol.
 The rule isElementOfL/1 takes a word as input parameter and decides
  if a word, represented as a list is part of the language represented
  by the DFA with the help of the rule stateChange/3, which calls
@@ -57,6 +61,7 @@ The rule isElementOfL/1 takes a word as input parameter and decides
 
  Example Queries are
 
- isElementOfL([a, b, a]). which returns "True." or
+ isElementOfL([a, b, a, b, a]). which returns "True." or
 
-isElementOfL([a, b, b, b]). which returns "False.".
+isElementOfL([a, b, b, a, b]). which returns "False." because it
+only has 2 a's.
