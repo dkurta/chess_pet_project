@@ -1,3 +1,25 @@
+""" This file contains methods to translate the German Chess DSL 
+    to tha standard san chess notation.
+    The code is programmed as functional as possible beeing stateless and using lambda expressions
+    and only constants, using a closure to hide a counter from outer scope and having all functions
+    without side effects.
+    
+
+SYNTAX of the German Chess DSL:
+
+    {figureType (required)} {{action (required)} {File or Rank (not required)} \
+    {Field (required)} {figureTypeConversion (note required)}"
+
+Examples for the German Chess DSL:
+
+    "Bauer nach d6" -> "d6"
+    "Bauer c schlägt d6" -> "cxd6"
+    "Turm f nach e1" -> "Rfe1"
+    "Springer schlägt f3" -> "Nxf3"
+    "Bauer b schläg a8 Dame" -> "bxa8=Q"
+"""
+
+
 TRANSLATION_PIECES = {'Springer':  'N',
                        'Turm':      'R',
                        'Bauer':     '',
@@ -12,14 +34,14 @@ FILES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
 # shift letters from FILES by 48 to recieve ROWS
 # ROWS = ['1', '2', '3', '4', '5', '6', '7', '8']
-ROWS = list(map(lambda s: str(chr(ord(s)-48)), FILES))
+RANKS = list(map(lambda s: str(chr(ord(s)-48)), FILES))
 
 
 def translate(dsl_string):
     """
     Translates a String in a German Domain Specific Language to the common Chess Notation DSL.
     :param dsl_string: the german dsl input String 
-    :return: move as standart Chess Notation
+    :return: move as standard Chess Notation
     """
     token = dsl_string.strip().split(" ")
     counter = closure_for_counter()
@@ -27,7 +49,7 @@ def translate(dsl_string):
     # e.g. "Springer"
     translated_token.append(TRANSLATION_PIECES[token[counter()]])
 
-    if token[counter(inc=False)+1] in FILES or token[counter(inc=False)+1] in ROWS:
+    if token[counter(inc=False)+1] in FILES or token[counter(inc=False)+1] in RANKS:
         # e.g. "a"/"1"
         translated_token.append(token[counter()])
 
