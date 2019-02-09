@@ -7,8 +7,8 @@
 
 SYNTAX of the German Chess DSL:
 
-    {figureType (required)} {{action (required)} {File or Rank (not required)} \
-    {Field (required)} {figureTypeConversion (note required)}"
+    {figureType (required)} {action (required)} {file or rank (not required)} \
+    {field (required)} {figureTypeConversion (note required)}"
 
 Examples for the German Chess DSL:
 
