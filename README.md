@@ -21,6 +21,7 @@ For generating metrics for the Chess Pet Project, i used [sonarcloud.io](sonarcl
  github-account and import the project you want to investigate. Than you only have to
  to add the sonar-scanner to the local %PATH% and run it in the local
  directory. After these steps, you can see the metrics on the sonarcloud.io page.
+ The code analysis with sonarqube is also part of the Jenkins Pipeline.
 
 
 ## Clean Code Development
@@ -29,11 +30,27 @@ There are fixed values for ratings for won or drawn games declared at the
 beginning of the evaluation function in Evaluation.py. That is better than
 hard-coding them as magic numbers at the place where they are needed.
 #### 2. Explanatory Variables
+The naming of the variables is as simple and understandable as possible.
+Examples are:
+* TRANSLATION_PIECES for a dict that maps german names of pieces to san notations.
+* RATING_FOR_GAME_WON_BY_WHITE for a constand value for a game won by white. The name is long,
+but it contains everything a reader needs to know!
+* PIECE_VALUES is a dict that maps numeric values to names of pieces
+* 'depth' for the searching depth of the Negamax algorithm
 #### 3. Source Code Conventions
 The code style has been checked for the PEP 8 -- Style Guide for Python
  Code while programming. It covers e.g. naming and layout conventions.
+#### 4. Static Code Analysis
+Used sonarqube for SCA. See **Metrics**
+#### You ain't gonna need it (YAGNI)
+Every function that is implemented in the project is used.
+#### 5. Use a Build Tool
+See **Build Management**
+#### 6. DRY (Don't repeat Yourself)
+See *Duplicates* **Metrics**
 
 ## Build Management
+
 This project is builded with Ant via the `build.xml` file in the `.`
 directory of the project.
 
@@ -45,6 +62,18 @@ folder and how they get copied into an other directory. The steps in this proces
   property tag.
 
 ## Continuous Delivery
+
+The pipeline for continuous delivery of the Chess Pet Project was build with
+ Jenkins and can be seen in the `./Jenkinsfile`. The process contains 4 stages:
+
+ * Greet: calls a simple .bat-File with a greeting message
+ * Build Metrics: calls a .bat-Script that runs the sonar-scanner
+ * Deploy: runs the build.xml-File via the ant command
+ * Say Good Bye: calls a simple .bat-File that echos "Goodbye!"
+
+Before Jenkins starts the first stage, it pulls the repository from github.
+This process was configured in the Jenkins browser frontend while setting up
+the Pipeline.
 
 ## DSL
 In the Chess Pet Project, two Domain Specific Languages are used. The
