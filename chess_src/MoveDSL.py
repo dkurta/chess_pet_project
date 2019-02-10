@@ -8,7 +8,10 @@
 SYNTAX of the German Chess DSL:
 
     {figureType (required)} {action (required)} {file or rank (not required)} \
-    {field (required)} {figureTypeConversion (note required)} {Schach/Schachmatt (not required)}"
+    {field (required)} {figureTypeConversion (note required)} {Schach/Schachmatt (not required)}"   
+    or
+    "{kurze Rochade | lange Rochade (required)} {Schach/Schachmatt (not required)}" 
+
 
 Examples for the German Chess DSL:
 
@@ -35,6 +38,9 @@ TRANSLATIONS_ACTION = {'schlägt':   'x',
 TRANSLATION_SPECIAL = {'kurze Rochade': '0-0',
                        'lange Rochade': '0-0-0'}
 
+TRANSLATION_CHECKS =  {'Schach': '+',
+                       'Schachmatt': '++'}
+
 FILES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
 # shift letters from FILES by 48 to recieve ROWS
@@ -53,14 +59,18 @@ def translate(dsl_string):
 
     token = dsl_string.strip().split(" ")
 
-    # check if last word is "Schach" or "Schachmatt"
+    # check if last word is "Schach" or "Schachmatt" and append symbol at the end of the method
     last_symbol = []
-    if token[-1] == "Schach":
-        last_symbol.append("+")
+    if token[-1] in TRANSLATION_CHECKS.keys():
+        last_symbol.append(TRANSLATION_CHECKS[token[-1]])
         del token[-1]
-    if token[-1] == "Schachmatt":
-        last_symbol.append("++")
-        del token[-1]
+
+    # Handle case of casteling
+    if ' '.join(token[0:2]) in TRANSLATION_SPECIAL.keys():
+        result = TRANSLATION_SPECIAL[' '.join(token[0:2])]
+        if last_symbol:
+            result += last_symbol[0]
+        return result
 
     counter = closure_for_counter()
     translated_token = list()
