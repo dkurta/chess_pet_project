@@ -9,7 +9,7 @@ pipeline {
         stage('Build Metrics') {
             steps {
                 // run bat-script for metrics
-                bat "start cmd.exe ./scripts/sonarqubeScript.bat"
+                bat "start cmd.exe /C ./scripts/sonarqubeScript.bat"
             }
         }
         stage('Deploy') {
