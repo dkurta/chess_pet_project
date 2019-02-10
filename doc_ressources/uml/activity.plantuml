@@ -1,0 +1,24 @@
+@startuml
+start
+
+:choose color;
+
+:set starting position \n(default: standard starting position);
+
+while (game over?) is (no)
+
+:enter move;
+
+while (valid move?) is (no)
+  :ask for other move;
+endwhile (yes)
+
+:make ai move
+  (Based on Negamax);
+
+:enter move;
+
+endwhile(yes)
+
+stop
+@enduml

@@ -2,10 +2,13 @@
 by Daniel Kurta
 
 This project implements a simple chessbot based on
-the negamax-algorithm. It uses [the python-chess library](https://python-chess.readthedocs.io/en/latest/index.html).
+the Negamax-algorithm. It uses [the python-chess library](https://python-chess.readthedocs.io/en/latest/index.html).
 
 ## UML
 
+#### Activity Diagram
+
+![Activity Diagram](./doc_ressources/uml/activity.png)
 ## Metrics
 For generating metrics for the Chess Pet Project, i used [sonarcloud.io](sonarcloud.io)
  sonarcloud is easy to use in that way. You can simply subscribe with your
@@ -25,7 +28,7 @@ The code style has been checked for the PEP 8 -- Style Guide for Python
  Code while programming. It covers e.g. naming and layout conventions.
 
 ## Build Management
-This project gets builded with Ant via the `build.xml` file in the `.`
+This project is builded with Ant via the `build.xml` file in the `.`
 directory of the project.
 
 `build.xml` defines the process of deployment of the files in the project's
@@ -35,7 +38,7 @@ folder and how they get copied into an other directory. The steps in this proces
   paths that are used in the buildfile are declared as values and locations with a
   property tag.
 
-## Continous Delivery
+## Continuous Delivery
 
 ## DSL
 In the Chess Pet Project, two Domain Specific Languages are used. The
@@ -66,17 +69,17 @@ The implementation of the parser for the German Chess DSL is programmed
  in a functional way. I've tried to cover several functional definitions in
  `chess_src/MoveDSL.py` like:
 
-#### only final data structures
+#### Only final data structures
 
 Every data structure that is used doesn't get changed after
  declaration (line 23-37). That makes the code stateless.
 
-#### side effect free functions
+#### Side effect free functions
 
 The functions are only used to compute a result from an input. They don't change
 any variables from outer scope and have no side effects.
 
-#### higher order functions and functions as parameters
+#### Higher order functions and functions as parameters
 
 In line 37, the higher order function map is used in combination with a
 lambda expression as parameter to generate a list containing identifiers for the
@@ -85,10 +88,10 @@ as a prove of concept.
 An other example for the usage of a map function with lambda can be found in
 `./chess_src/Util.py`.
 
-#### usage of a closure
+#### Usage of a closure
 
 In line 66, there is a definition of a closure for a counter. The variable
-for the counter can only be adressed by calling the function, because it only
+for the counter can only be addressed by calling the function, because it only
 exists in its scope. That makes sure that the counter can not be manipulated
 by other functions.
 
@@ -97,7 +100,7 @@ by other functions.
 The logical programming part is located in
 `./logical_programming/graph_search.pl)`.
 
-![DFA](./img/dfa.png)
+![DFA](./doc_ressources/img/dfa.png)
 
 For a little project in logical programming in Prolog, i adressed
 the problem of the membership of a word to a language given by a
@@ -115,7 +118,7 @@ second state.
 The rule isElementOfL/1 takes a word as input parameter and decides
  if a word (represented as a list) is part of the language represented
  by the DFA with the help of the rule stateChange/3, which calls
- itself in a recursive way for wordes with a length > 2.
+ itself in a recursive way for words with a length > 2.
 
  Example Queries are:
 * isElementOfL([a, b, a, b, a]). which returns "True."

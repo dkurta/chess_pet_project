@@ -1,10 +1,10 @@
 <project name="ChessPetProject" default="copy_all" basedir=".">
   <description>
-    this is the build file for building the chess pet project by daniel kurta with ant.
+    this is the build file for building the chess pet project by Daniel Kurta with Ant.
   </description>
   <!-- set some global properties... -->
   <property name="target_folder" location="C:\Users\Admin\Desktop\DataScience\1. Semester\advanced_softwareengineering\chess_pet_project_target"/>
-  <property name="message" value="Buildprozess gestartet"/>
+  <property name="message" value="Hallo! Der Buildprozess mit Ant wurde gestartet"/>
 
 <target name="greet" description="say hello">
     <echo message="${message}"/>
