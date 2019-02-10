@@ -62,6 +62,37 @@ Examples for the German Chess DSL:
 
 ## Functional Programming
 
+The implementation of the parser for the German Chess DSL is programmed
+ in a functional way. I've tried to cover several functional definitions in
+ `chess_src/MoveDSL.py` like:
+
+#### only final data structures
+
+Every data structure that is used doesn't get changed after
+ declaration (line 23-37). That makes the code stateless.
+
+#### side effect free functions
+
+The functions are only used to compute a result from an input. They don't change
+any variables from outer scope and have no side effects.
+
+#### higher order functions and functions as parameters
+
+In line 37, the higher order function map is used in combination with a
+lambda expression as parameter to generate a list containing identifiers for the
+ranks of a chess board. The usage may seem arbitrary, but it's implemented
+as a prove of concept.
+An other example for the usage of a map function with lambda can be found in
+`./chess_src/Util.py`.
+
+#### usage of a closure
+
+In line 66, there is a definition of a closure for a counter. The variable
+for the counter can only be adressed by calling the function, because it only
+exists in its scope. That makes sure that the counter can not be manipulated
+by other functions.
+
+
 ## Logical Programming
 The logical programming part is located in
 `./logical_programming/graph_search.pl)`.
