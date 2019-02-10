@@ -8,6 +8,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                //simply call ant command for deployment
                 bat "ant"
             }
         }
