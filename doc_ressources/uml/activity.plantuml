@@ -13,10 +13,7 @@ while (valid move?) is (no)
   :ask for other move;
 endwhile (yes)
 
-:make ai move
-  (Based on Negamax);
-
-:enter move;
+:make ai move;
 
 endwhile(yes)
 

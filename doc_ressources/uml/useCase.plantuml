@@ -1,0 +1,21 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+
+actor user
+
+rectangle (playChess) {
+  usecase UC1 as "use standart chess notation
+  --
+  use a more readable DSL for chess notation"
+  user -- (playChess)
+  (playChess) .> UC1 : include
+  (playChess) .> (see a board representation) : include
+  (playChess) .> (pick a color) : include
+}
+user --> (have fun)
+
+user --> (receive a greeting message befor the program stops)
+user --> (start game from a specific position)
+@enduml

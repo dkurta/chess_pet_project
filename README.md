@@ -9,6 +9,12 @@ the Negamax-algorithm. It uses [the python-chess library](https://python-chess.r
 #### Activity Diagram
 
 ![Activity Diagram](./doc_ressources/uml/activity.png)
+
+#### Use Case Diagram
+
+![Use Cases](./doc_ressources/uml/useCase.png)
+
+
 ## Metrics
 For generating metrics for the Chess Pet Project, i used [sonarcloud.io](sonarcloud.io)
  sonarcloud is easy to use in that way. You can simply subscribe with your
