@@ -36,16 +36,37 @@ def evaluate(board, color="WHITE"):
         else:
             return RATING_FOR_DRAWN_GAME
 
+    piece_map = board.piece_map()
+    # revert piece map to access field indices of pieces
+    inverted_piece_map = {v: k for k, v in piece_map.items()}
+
     score = 0
     # add up scores according to piece_values
-    for piece in board.piece_map().values():
+    for piece in piece_map.values():
         if piece.color:
-            # white piece, add
+            ## white piece, add
+            # add the value of the piece
             score += PIECE_VALUES[piece.piece_type]
+            # reward piece with high influence
+            score += get_number_of_attacked_fields(piece, inverted_piece_map, board)*0.02
         else:
-            # black piece, subtract
+            ## black piece, subtract
+            # add the value of the piece
             score -= PIECE_VALUES[piece.piece_type]
+            # reward piece with high influence
+            score -= get_number_of_attacked_fields(piece, inverted_piece_map, board)*0.02
+    score = round(score, 2)
     if color == "WHITE":
         return score
     else:
         return -score
+
+
+def get_number_of_attacked_fields(piece, inverted_piece_map, board):
+    """
+    computes the number of squares attacked by a piece
+    :param piece: the piece
+    :param inverted_piece_map: a dict that has pieces as key and it's square indice as value
+    :return: number of attacked squares
+    """
+    return len(board.attacks(inverted_piece_map[piece]))

@@ -8,15 +8,17 @@
 SYNTAX of the German Chess DSL:
 
     {figureType (required)} {action (required)} {file or rank (not required)} \
-    {field (required)} {figureTypeConversion (note required)}"
+    {field (required)} {figureTypeConversion (note required)} {Schach/Schachmatt (not required)}"
 
 Examples for the German Chess DSL:
 
     "Bauer nach d6" -> "d6"
     "Bauer c schlägt d6" -> "cxd6"
     "Turm f nach e1" -> "Rfe1"
-    "Springer schlägt f3" -> "Nxf3"
+    "Springer schlägt f3 Schach" -> "Nxf3+"
     "Bauer b schläg a8 Dame" -> "bxa8=Q"
+    "kurze Rochade" -> "0-0"
+    "Läufer schlägt e5 Schachmatt" -> "Bxe5++"
 """
 
 
@@ -29,6 +31,9 @@ TRANSLATION_PIECES = {'Springer':  'N',
 
 TRANSLATIONS_ACTION = {'schlägt':   'x',
                        'nach':       ''}
+
+TRANSLATION_SPECIAL = {'kurze Rochade': '0-0',
+                       'lange Rochade': '0-0-0'}
 
 FILES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
@@ -43,7 +48,20 @@ def translate(dsl_string):
     :param dsl_string: the german dsl input String 
     :return: move as standard Chess Notation
     """
+    if dsl_string in TRANSLATION_SPECIAL.keys():
+        return TRANSLATION_SPECIAL[dsl_string]
+
     token = dsl_string.strip().split(" ")
+
+    # check if last word is "Schach" or "Schachmatt"
+    last_symbol = []
+    if token[-1] == "Schach":
+        last_symbol.append("+")
+        del token[-1]
+    if token[-1] == "Schachmatt":
+        last_symbol.append("++")
+        del token[-1]
+
     counter = closure_for_counter()
     translated_token = list()
     # e.g. "Springer"
@@ -60,7 +78,7 @@ def translate(dsl_string):
     if counter() == len(token) - 1:
         # e.g. "Dame"
         translated_token.append('={}'.format(TRANSLATION_PIECES[token[counter(inc=False)]]))
-    return ''.join(translated_token)
+    return ''.join(translated_token + last_symbol)
 
 
 def closure_for_counter():

@@ -1,5 +1,4 @@
 from chess_src.Evaluation import evaluate
-from chess_src.Negamax import choose_move
 from chess_src.MoveDSL import translate
 
 
@@ -21,9 +20,7 @@ def validate_move(move, game):
     :param game: the game state. needed for the list of regular moves.
     :return: the move if move is in the list. False if not.
     """
-    move_list_uci = list(game.b.legal_moves)
-    # convert to san format
-    move_list_san = list(map(lambda m: game.b.san(m), move_list_uci))
+    move_list_san = get_san_move_list(game)
     if move in move_list_san:
         return move
     try:
@@ -38,9 +35,25 @@ def validate_move(move, game):
 
 def execute_move(move, game):
     """
-    Execute move
+    Execute a move in san format.
     :param move: move in san format 
     :param game: game state
-    :return: 
     """
     game.b.push_san(move)
+
+
+def get_san_move_list(game):
+    """
+    :return: a list of moves in san format.
+    """
+    move_list_uci = list(game.b.legal_moves)
+    # convert to san format
+    return list(map(lambda m: game.b.san(m), move_list_uci))
+
+
+def get_pretty_move_list(game):
+    """
+    computes a pretty list of possible moves in a game state.
+    :return: list of possible moves as a String.
+    """
+    return " ".join(get_san_move_list(game))

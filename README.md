@@ -6,7 +6,7 @@ the Negamax-algorithm. It uses [the python-chess library](https://python-chess.r
 
 ## UML
 All UML diagrams are created with PlantUML. The source code for them can
-be found [in the uml directory](./doc_ressources/uml)
+be found [in the uml directory.](./doc_ressources/uml)
 #### Activity Diagram
 
 ![Activity Diagram](./doc_ressources/uml/activity.png)
@@ -52,6 +52,10 @@ Every function that is implemented in the project is used.
 See **Build Management**
 #### 7. DRY (Don't repeat Yourself)
 It is better to write code just once in a project. See *Duplicates* **Metrics**
+#### 8. Usage of comments
+Comments are used through the whole project. They explain non-trivial statements or
+are used as docstrings, for example on top of the MoveDSL.py file and in every
+method.
 
 ## Build Management
 
@@ -92,15 +96,17 @@ is located in `./chess_src/MoveDSL.py`.
 Its Syntax is pretty easy:
 
 "{figureType (required)} {action (required)} {file or rank (not required)} \
-    {field (required)} {figureTypeConversion (note required)}"
+    {field (required)} {figureTypeConversion (note required)} {Schach/Schachmatt (not required)}"
 
 Examples for the German Chess DSL:
 
 * "Bauer nach d6" -> "d6"
 * "Bauer c schlägt d6" -> "cxd6"
 * "Turm f nach e1" -> "Rfe1"
-* "Springer schlägt f3" -> "Nxf3"
+* "Springer schlägt f3 Schach" -> "Nxf3+"
+* "kurze Rochade" -> "0-0"
 * "Bauer b schläg a8 Dame" -> "bxa8=Q"
+* "Läufer schlägt e5 Schachmatt" -> "Bxe5++"
 
 ## Functional Programming
 
