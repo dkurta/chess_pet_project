@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Greet') {
             steps {
-                bat "echo Hello"
+                bat "./scripts/hello.bat"
             }
         }
         stage('Build Metrics') {
@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Say Good Bye') {
             steps {
-                bat "echo Good Bye!"
+                bat "./scripts/hello.bat"
             }
         }
     }
