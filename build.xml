@@ -23,8 +23,9 @@
 
   <target name="copy_all" description="copy data to target dir" depends="make_dir">
     <!-- copy everything  to the build directory -->
-    <copy todir="${target_folder}">
-        <fileset dir="${basedir}"/>
+    <copy todir="${target_folder}/chess_src">
+        <fileset dir="${basedir}/chess_src"/>
     </copy>
+    <delete dir="${target_folder}/chess_src/__pycache__"/>
   </target>
 </project>
