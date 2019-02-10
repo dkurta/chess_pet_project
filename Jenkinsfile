@@ -1,14 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Greet') {
             steps {
-                //
-            }
-        }
-        stage('Test') {
-            steps {
-                //
+                bat "echo greetings"
             }
         }
         stage('Deploy') {
