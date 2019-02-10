@@ -8,10 +8,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                withAnt(installation: 'ant1.10.5') {
-                    //call ant
-                    bat "ant"
-                }
+                bat "ant"
             }
         }
     }
