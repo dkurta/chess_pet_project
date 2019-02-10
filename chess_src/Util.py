@@ -44,29 +44,3 @@ def execute_move(move, game):
     :return: 
     """
     game.b.push_san(move)
-
-
-def play(game):
-    """
-    Function for playing a chess game. Asks player for moves and makes move suggested by Negamax.
-    :param game: The starting state of the game.
-    :return: 
-    """
-    while not game.b.is_game_over():
-        print_board_and_score(game)
-        if game.b.turn == game.player_color:
-            # player has to move
-            valid_move_inserted = False
-            while not valid_move_inserted:
-                # while loop for catching invalid moves.
-                move = input('Please enter your move. Possible moves are: \n{}'.format(game.b.legal_moves))
-                move_val = validate_move(move, game)
-                if move_val:
-                    game.b.push_san(move_val)
-                    valid_move_inserted = True
-        else:
-            # bot has to move
-            print("AI moves.")
-            ai_move_san = choose_move(game.b, game.bot_color)
-            print("AI's move is {}".format(ai_move_san))
-            game.b.push_san(ai_move_san)

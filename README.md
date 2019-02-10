@@ -14,6 +14,9 @@ the Negamax-algorithm. It uses [the python-chess library](https://python-chess.r
 
 ![Use Cases](./doc_ressources/uml/useCase.png)
 
+#### Class Diagram
+
+![Class Diagram](./doc_ressources/uml/classDiagram.png)
 
 ## Metrics
 For generating metrics for the Chess Pet Project, i used [sonarcloud.io](sonarcloud.io)
@@ -42,12 +45,12 @@ The code style has been checked for the PEP 8 -- Style Guide for Python
  Code while programming. It covers e.g. naming and layout conventions.
 #### 4. Static Code Analysis
 Used sonarqube for SCA. See **Metrics**
-#### You ain't gonna need it (YAGNI)
+#### 5. You ain't gonna need it (YAGNI)
 Every function that is implemented in the project is used.
-#### 5. Use a Build Tool
+#### 6. Use a Build Tool
 See **Build Management**
-#### 6. DRY (Don't repeat Yourself)
-See *Duplicates* **Metrics**
+#### 7. DRY (Don't repeat Yourself)
+It is better to write code just once in a project. See *Duplicates* **Metrics**
 
 ## Build Management
 

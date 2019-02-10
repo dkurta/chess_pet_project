@@ -1,0 +1,11 @@
+@startuml
+class Game{
+  chess.Board
+  player_color
+  bot_color
+
+  init(self, fen)
+  play(self)
+  is_finished(self)
+}
+@enduml

@@ -13,4 +13,4 @@ if __name__ == '__main__':
     #     s = translate(move)
     #     print(s)
     g = Game()
-    play(game=g)
+    g.play()
