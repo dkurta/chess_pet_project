@@ -10,7 +10,7 @@ pipeline {
             steps {
                 withAnt(installation: 'ant1.10.5') {
                     //call ant
-                    bat "ant build"
+                    bat "ant"
                 }
             }
         }
