@@ -5,7 +5,8 @@ This project implements a simple chessbot based on
 the Negamax-algorithm. It uses [the python-chess library](https://python-chess.readthedocs.io/en/latest/index.html).
 
 ## UML
-
+All UML diagrams are created with PlantUML. The source code for them can
+be found [in the uml directory](./doc_ressources/uml)
 #### Activity Diagram
 
 ![Activity Diagram](./doc_ressources/uml/activity.png)
