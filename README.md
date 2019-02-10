@@ -95,12 +95,12 @@ is located in `./chess_src/MoveDSL.py`.
 
 Its Syntax is pretty easy:
 
-"{figureType (required)} {action (required)} {file or rank (not required)} \
-    {field (required)} {figureTypeConversion (note required)} {Schach/Schachmatt (not required)}"
+`"{figureType (required)} {action (required)} {file or rank (not required)} \
+    {field (required)} {figureTypeConversion (note required)} {Schach/Schachmatt (not required)}"`
 
 or
 
-    "{kurze Rochade | lange Rochade (required)} {Schach/Schachmatt (not required)}"
+`"{kurze Rochade | lange Rochade (required)} {Schach/Schachmatt (not required)}"`
 
 Examples for the German Chess DSL:
 
