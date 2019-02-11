@@ -1,3 +1,15 @@
+"""This File contains the evaluation function, a core element of the Chess Pet Project.
+In the evaluation, a chess position gets mapped to a numeric value. Negative values are better
+for the black party, positive values say that white's position is. There are to factors for the evaluation:
+
+a) the material:
+    Every type of pieces gets mapped to a numeric value. The value of a pawn is mapped to 1.0
+    These values are added up in a positive way for white pieces and negative for black's.
+
+b) the influence on the board:
+    The party with more active piecces is often better in chess. That's why every field attacked by a piece 
+    of a party gains +0.02 for the score.
+"""
 import chess
 
 # piece values according to Capablanca

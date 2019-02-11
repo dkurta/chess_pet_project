@@ -159,6 +159,9 @@ shown in the picture. It represents the language over the alphabet {a, b}
 
   `L = {w | w contains exactly 3 a's}`
 
+  **A similar DFA or rather a NFA (Nondeterministic Finite Automaton) could be used to
+  check the affiliation of an input to the set that describes the German Chess DSL.**
+
   The transition function of the
 DFA is represented in the knowledge base by the fact edge/3 where the
 first argument is the initial state, the second is the next state and the
