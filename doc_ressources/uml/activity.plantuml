@@ -3,18 +3,19 @@ start
 
 :choose color;
 
-:set starting position \n(default: standard starting position);
+:set starting position (fen) \n(default: standard starting position);
 
 while (game over?) is (no)
 
-:enter move;
+:execute move;
 
 while (valid move?) is (no)
   :ask for other move;
 endwhile (yes)
 
-:make ai move;
+:pick AI move \n(Based on Negamax);
 
+:execute AI move;
 endwhile(yes)
 
 stop

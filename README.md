@@ -134,7 +134,7 @@ any variables from outer scope and have no side effects.
 
 #### Higher order functions and functions as parameters
 
-In line 37, the higher order function map is used in combination with a
+In line 48, the higher order function map is used in combination with a
 lambda expression as parameter to generate a list containing identifiers for the
 ranks of a chess board. The usage may seem arbitrary, but it's implemented
 as a prove of concept.
@@ -143,7 +143,7 @@ An other example for the usage of a map function with lambda can be found in
 
 #### Usage of a closure
 
-In line 66, there is a definition of a closure for a counter. The variable
+In line 94, there is a definition of a closure for a counter. The variable
 for the counter can only be addressed by calling the function, because it only
 exists in its scope. That makes sure that the counter can not be manipulated
 by other functions.
@@ -163,7 +163,7 @@ shown in the picture. It represents the language over the alphabet {a, b}
 
   `L = {w | w contains exactly 3 a's}`
 
-  **A similar DFA or rather a NFA (Nondeterministic Finite Automaton) could be used to
+  **A similar DFA or a NFA (Nondeterministic Finite Automaton) could be used to
   check the affiliation of an input to the set that describes the German Chess DSL.**
 
   The transition function of the
