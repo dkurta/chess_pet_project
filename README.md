@@ -1,13 +1,15 @@
 # Chess Pet Project
 by Daniel Kurta
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=dkurta_chess_pet_project&metric=alert_status)](https://sonarcloud.io/dashboard?id=dkurta_chess_pet_project)
+
 This project implements a simple chessbot based on
 the [Negamax algorithm](https://en.wikipedia.org/wiki/Negamax).
 It uses [the python-chess library](https://python-chess.readthedocs.io/en/latest/index.html).
 
 Run chess_src.Main.py for playing, choose the side you want to play and enter
 your moves in [standart algebraic notation](https://en.wikipedia.org/wiki/Algebraic_notation_(chess))
-or in the special German Chess DSL (see *DSL*) if you're asked to do so.
+or in the special German Chess DSL (see *DSL*) if asked to do so.
 
 The Chess Pet Project consists of four main components (see *UML Components Diagram)*:
 
