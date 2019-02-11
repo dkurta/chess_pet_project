@@ -1,4 +1,5 @@
-# Chess Pet Project [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=dkurta_chess_pet_project&metric=alert_status)](https://sonarcloud.io/dashboard?id=dkurta_chess_pet_project)
+# Chess Pet Project
+# [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=dkurta_chess_pet_project&metric=alert_status)](https://sonarcloud.io/dashboard?id=dkurta_chess_pet_project)
 by Daniel Kurta
 
 
