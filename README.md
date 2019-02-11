@@ -2,7 +2,30 @@
 by Daniel Kurta
 
 This project implements a simple chessbot based on
-the Negamax-algorithm. It uses [the python-chess library](https://python-chess.readthedocs.io/en/latest/index.html).
+the [Negamax algorithm](https://en.wikipedia.org/wiki/Negamax).
+It uses [the python-chess library](https://python-chess.readthedocs.io/en/latest/index.html).
+
+Run chess_src.Main.py for playing, choose the side you want to play and enter
+your moves in [standart algebraic notation](https://en.wikipedia.org/wiki/Algebraic_notation_(chess))
+or in the special German Chess DSL (see *DSL*) if you're asked to do so.
+
+The Chess Pet Project consists of four main components (see *UML Components Diagram)*:
+
+* Game.py: The class 'Game' is a wrapper of a chess.Board from the python module.
+It also holds a method to play the game.
+* German Chess DSL: see topic *DSL* further down.
+* An Evaluation Function: a chess position gets mapped to a numeric value. Negative values are better
+for the black party, positive values say that white's position is. There are to factors for the evaluation:
+
+    * a) the material:
+    Every type of pieces gets mapped to a numeric value. The value of a pawn is mapped to 1.0
+    These values are added up in a positive way for white pieces and negative for black's.
+
+    * b) the influence on the board:
+    The party with more active piecces is often better in chess. That's why every field attacked by a piece
+    of a party gains +0.02 for the score.
+* Negamax algorithm: The AI chooses his moves with the Negamax algorithm. Read more about it: https://en.wikipedia.org/wiki/Negamax
+
 
 ## UML
 All UML diagrams are created with PlantUML. The source code for them can
