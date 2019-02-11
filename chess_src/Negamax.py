@@ -1,3 +1,5 @@
+"""Implementation of the Negamax algorithm. See https://en.wikipedia.org/wiki/Negamax."""
+
 from chess_src.Evaluation import evaluate
 
 CALCULATION_DEPTH = 3
