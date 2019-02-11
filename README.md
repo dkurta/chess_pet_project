@@ -1,7 +1,8 @@
 # Chess Pet Project
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=dkurta_chess_pet_project&metric=alert_status)](https://sonarcloud.io/dashboard?id=dkurta_chess_pet_project)
 by Daniel Kurta
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=dkurta_chess_pet_project&metric=alert_status)](https://sonarcloud.io/dashboard?id=dkurta_chess_pet_project)
+
 
 This project implements a simple chessbot based on
 the [Negamax algorithm](https://en.wikipedia.org/wiki/Negamax).
@@ -55,6 +56,19 @@ For generating metrics for the Chess Pet Project, i used [sonarcloud.io](sonarcl
  to add the sonar-scanner to the local %PATH% and run it in the local
  directory. After these steps, you can see the metrics on the sonarcloud.io page.
  The code analysis with sonarqube is also part of the Jenkins Pipeline.
+
+ Here is a screenshot of the sonarcloud overview dashboard. It looks pretty good,
+ sonarqube only complains about missing test:
+
+![Sonar Dashboard](./doc_ressources/img/sonar.png)
+
+Other measures are:
+
+* Lines of Code: 177
+* Lines of Comments: 152
+* Comments (%): 46.2
+* Cyclomatic Complexity: 44
+* Cognitive Complexity: 49
 
 
 ## Clean Code Development
