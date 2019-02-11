@@ -15,6 +15,10 @@ be found [in the uml directory.](./doc_ressources/uml)
 
 ![Use Cases](./doc_ressources/uml/useCase.png)
 
+#### Component Diagram
+
+![Components](./doc_ressources/uml/components.png)
+
 #### Class Diagram
 
 ![Class Diagram](./doc_ressources/uml/classDiagram.png)

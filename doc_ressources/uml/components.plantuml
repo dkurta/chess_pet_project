@@ -1,0 +1,12 @@
+@startuml
+package "Playing Chess" {
+  [Game (Wrapper-Class) \n as Environment]
+  [German Chess DSL]
+}
+
+
+package "Move Evaluation" {
+  [Negamax Implementation]
+  [Evaluation Function]
+}
+@enduml
