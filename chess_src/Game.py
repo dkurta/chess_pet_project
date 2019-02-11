@@ -18,7 +18,6 @@ class Game:
             self.b = chess.Board(fen)
         else:
             self.b = chess.Board()
-        #fen = input()
         player_color = input("Pick w/b")
         if player_color == "w":
             self.player_color = chess.WHITE
